@@ -1,46 +1,46 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
   background: white;
-  padding: 25px;
+  padding: 30px;
+  border-radius: 15px;
   width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
   text-align: center;
-}
-
-.form-box {
-  display: flex;
-  gap: 10px;
   margin-bottom: 20px;
 }
 
 input, select {
   padding: 8px;
-  flex: 1;
+  margin-right: 5px;
 }
 
 button {
-  padding: 8px 12px;
-  cursor: pointer;
   background-color: #4CAF50;
   color: white;
   border: none;
+  padding: 8px 12px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-li {
-  margin-bottom: 10px;
+button:hover {
+  background-color: #45a049;
+}
+
+.user {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-top: 10px;
 }
