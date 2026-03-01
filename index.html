@@ -1,83 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Subscription System</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Subscription System - React</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <h1>Subscription Management</h1>
+  <div id="root"></div>
 
-    <div class="form-box">
-        <input type="text" id="name" placeholder="Enter your name">
-        
-        <select id="plan">
-            <option>Basic</option>
-            <option>Premium</option>
-            <option>Pro</option>
-        </select>
-
-        <button onclick="subscribe()">Subscribe</button>
-    </div>
-
-    <h3>Active Subscriptions</h3>
-    <ul id="userList"></ul>
-</div>
-
-<script>
-let users = [
-    { id: 1, name: "Sindhu", plan: "Premium", status: "Active" },
-    { id: 2, name: "John", plan: "Basic", status: "Active" }
-];
-
-function loadUsers() {
-    let list = document.getElementById("userList");
-    list.innerHTML = "";
-
-    users.forEach(user => {
-        list.innerHTML += `
-            <li>
-                <div>
-                    <strong>${user.name}</strong><br>
-                    Plan: ${user.plan} | Status: ${user.status}
-                </div>
-                <button class="cancel-btn" onclick="cancel(${user.id})">Cancel</button>
-            </li>
-        `;
-    });
-}
-
-function subscribe() {
-    const name = document.getElementById("name").value;
-    const plan = document.getElementById("plan").value;
-
-    if(name === "") {
-        alert("Please enter name");
-        return;
-    }
-
-    users.push({
-        id: users.length + 1,
-        name,
-        plan,
-        status: "Active"
-    });
-
-    document.getElementById("name").value = "";
-    loadUsers();
-}
-
-function cancel(id) {
-    users = users.map(user =>
-        user.id === id ? { ...user, status: "Canceled" } : user
-    );
-
-    loadUsers();
-}
-
-loadUsers();
-</script>
+  <script type="text/babel" src="react.js"></script>
 
 </body>
 </html>
