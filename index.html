@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Subscription Management</h1>
+
+    <div class="form-box">
+        <input type="text" id="name" placeholder="Enter your name">
+        
+        <select id="plan">
+            <option>Basic</option>
+            <option>Premium</option>
+            <option>Pro</option>
+        </select>
+
+        <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <h3>Active Subscriptions</h3>
+    <ul id="userList"></ul>
+</div>
+
+<script>
+async function loadUsers() {
+    const res = await fetch("http://localhost:3000/users");
+    const data = await res.json();
+
+    let list = document.getElementById("userList");
+    list.innerHTML = "";
+
+    data.forEach(user => {
+        list.innerHTML += `
+            <li>
+                <div>
+                    <strong>${user.name}</strong><br>
+                    Plan: ${user.plan} | Status: ${user.status}
+                </div>
+                <button class="cancel-btn" onclick="cancel(${user.id})">Cancel</button>
+            </li>
+        `;
+    });
+}
+
+async function subscribe() {
+    const name = document.getElementById("name").value;
+    const plan = document.getElementById("plan").value;
+
+    await fetch("http://localhost:3000/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, plan })
+    });
+
+    loadUsers();
+}
+
+async function cancel(id) {
+    await fetch(`http://localhost:3000/cancel/${id}`, {
+        method: "DELETE"
+    });
+
+    loadUsers();
+}
+
+loadUsers();
+</script>
+
+</body>
+</html>
