@@ -12,14 +12,14 @@ function App() {
   const subscribe = () => {
     if (name === "") return;
 
-    const newUser = {
-      id: users.length + 1,
-      name,
-      plan,
-      status: "Active"
-    };
+    const newUser = {  
+      id: users.length + 1,  
+      name,  
+      plan,  
+      status: "Active"  
+    };  
 
-    setUsers([...users, newUser]);
+    setUsers([...users, newUser]);  
     setName("");
   };
 
@@ -35,34 +35,34 @@ function App() {
     <div className="container">
       <h1>Subscription Management</h1>
 
-      <div className="form-box">
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <div className="form-box">  
+        <input  
+          type="text"  
+          placeholder="Enter your name"  
+          value={name}  
+          onChange={(e) => setName(e.target.value)}  
+        />  
 
-        <select value={plan} onChange={(e) => setPlan(e.target.value)}>
-          <option>Basic</option>
-          <option>Premium</option>
-          <option>Pro</option>
-        </select>
+        <select value={plan} onChange={(e) => setPlan(e.target.value)}>  
+          <option>Basic</option>  
+          <option>Premium</option>  
+          <option>Pro</option>  
+        </select>  
 
-        <button onClick={subscribe}>Subscribe</button>
-      </div>
+        <button onClick={subscribe}>Subscribe</button>  
+      </div>  
 
-      <h3>Active Subscriptions</h3>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            <span>
-              <strong>{user.name}</strong> - {user.plan} - {user.status}
-            </span>
-            <button onClick={() => cancel(user.id)}>Cancel</button>
-          </li>
-        ))}
-      </ul>
+      <h3>Active Subscriptions</h3>  
+      <ul>  
+        {users.map(user => (  
+          <li key={user.id}>  
+            <span>  
+              <strong>{user.name}</strong> - {user.plan} - {user.status}  
+            </span>  
+            <button onClick={() => cancel(user.id)}>Cancel</button>  
+          </li>  
+        ))}  
+      </ul>  
     </div>
   );
 }
