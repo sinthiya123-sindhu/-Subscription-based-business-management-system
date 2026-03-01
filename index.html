@@ -26,14 +26,16 @@
 </div>
 
 <script>
-async function loadUsers() {
-    const res = await fetch("http://localhost:3000/users");
-    const data = await res.json();
+let users = [
+    { id: 1, name: "Sindhu", plan: "Premium", status: "Active" },
+    { id: 2, name: "John", plan: "Basic", status: "Active" }
+];
 
+function loadUsers() {
     let list = document.getElementById("userList");
     list.innerHTML = "";
 
-    data.forEach(user => {
+    users.forEach(user => {
         list.innerHTML += `
             <li>
                 <div>
@@ -46,23 +48,30 @@ async function loadUsers() {
     });
 }
 
-async function subscribe() {
+function subscribe() {
     const name = document.getElementById("name").value;
     const plan = document.getElementById("plan").value;
 
-    await fetch("http://localhost:3000/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, plan })
+    if(name === "") {
+        alert("Please enter name");
+        return;
+    }
+
+    users.push({
+        id: users.length + 1,
+        name,
+        plan,
+        status: "Active"
     });
 
+    document.getElementById("name").value = "";
     loadUsers();
 }
 
-async function cancel(id) {
-    await fetch(`http://localhost:3000/cancel/${id}`, {
-        method: "DELETE"
-    });
+function cancel(id) {
+    users = users.map(user =>
+        user.id === id ? { ...user, status: "Canceled" } : user
+    );
 
     loadUsers();
 }
