@@ -8,32 +8,39 @@ body {
   margin: 0;
 }
 
+/* White card container */
 .container {
   background: white;
   padding: 30px;
   border-radius: 15px;
   width: 420px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+/* Heading */
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #333;
 }
 
+/* Form layout */
 .form-box {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
+/* Inputs and select dropdown */
 input, select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
   flex: 1;
+  font-size: 14px;
 }
 
+/* Button styling */
 button {
   background-color: #4CAF50;
   color: white;
@@ -41,6 +48,7 @@ button {
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
   transition: 0.3s;
 }
 
@@ -49,17 +57,39 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* Active subscriptions list */
 ul {
   list-style: none;
   padding: 0;
 }
 
+/* Each subscription item */
 li {
   background: #f4f6f8;
-  padding: 10px;
+  padding: 12px 10px;
   border-radius: 8px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  }
+  font-size: 14px;
+}
+
+/* Cancel button inside list item */
+li button {
+  background-color: #ff4757;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+li button:hover {
+  background-color: #e84118;
+  transform: scale(1.05);
+}
+
+/* Input focus effect */
+input:focus,
+select:focus {
+  outline: none;
+  border: 2px solid #764ba2;
+}
