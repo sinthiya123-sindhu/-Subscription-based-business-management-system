@@ -14,7 +14,7 @@ HTML, CSS, React.js (CDN), Babel
 
 🌍Live Demo
 
-https://github.com/sinthiya123-sindhu/-Subscription-based-business-management-system/deployments
+https://sinthiya123-sindhu.github.io/-Subscription-based-business-management-system/
 
 🧑‍💻 Author
 
