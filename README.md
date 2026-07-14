@@ -10,7 +10,7 @@ Cancel subscriptions.
 
 ⚡ Tech Used
 
-HTML, CSS, React.js (CDN), Babel
+HTML, CSS, React.js 
 
 🌍Live Demo
 
